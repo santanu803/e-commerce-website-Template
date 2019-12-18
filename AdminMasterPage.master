@@ -1,0 +1,281 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMasterPage.master.cs" Inherits="AdminMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+
+        <style type="text/css">
+
+
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+body {
+  font: 9px "open sans", Arial, sans-serif;
+            height: 371px;
+        }
+
+ul.navbar {
+/*menu background color*/
+  background:#0066FF; /* Old browsers */
+  width: 1300px;
+  margin: 2em auto;
+}
+
+/*menu color*/
+ul.navbar li {
+	float: left;
+	margin: 0;
+	position: relative;
+	background:#0066FF;
+}
+
+ul.navbar li a {
+	display: block;
+	padding: 13px 15px; /*menu width and gap between two menu item*/
+	color: white !important; /*text color*/
+	text-decoration:none;
+	font-size:14px; /*text size*/
+	
+	text-transform: uppercase;
+	transition: all .2s ease-in-out;
+}
+
+ul.navbar li a:hover,
+/*after mouse color*/
+ul.navbar li:hover > a {
+	background:#00CCFF;
+	color: #fff !important;
+}
+
+ul.navbar li ul {
+  margin: 0;
+  position: absolute;
+  background: #222;
+  left: 10%;
+  font-size: 10px;
+  min-width: 170px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 99;
+  transition: all .1s ease;
+}
+.divlbluser{
+            position:fixed;
+            top:75px;
+            right:140px;
+        }
+
+ul.navbar ul li { float: none; }
+ul.navbar li:hover > ul { opacity: 1; visibility: visible; left: 0; max-height: 250px }
+ul.navbar > li:hover > ul { opacity: 1; visibility: visible; top: 100%; left: 0; }
+ul.navbar li > ul  ul { top: 0; left: 90%; }
+ul.navbar li > ul li:hover > ul { left: 100%; }
+
+
+#Layer2 {
+	position:absolute;
+	left:13px;
+	top:99px;
+	width:745px;
+	height:98px;
+	z-index:1;
+}
+#Layer1 {
+	position:absolute;
+	left:124px;
+	top:46px;
+	width:660px;
+	height:42px;
+	z-index:2;
+}
+#Layer3 {
+	position:absolute;
+	left:557px;
+	top:2px;
+	width:100px;
+	height:38px;
+	z-index:3;
+}
+ .admindiv{
+            top:0;
+            position:fixed;
+            width:100%;
+            background-color:white;
+           
+        }
+ .divaloginicon{
+            position:fixed;
+            top:55px;
+            right:0px;
+        }
+ .myicon{
+            position:fixed;
+            height:50px;
+            width:50px;
+           top:227px;
+           right:5px;
+           transition:all 0.1s;
+        }
+ .myicon:hover{
+     /*transform:scale(1.2);*/
+     width:150px;
+     height:50px;
+     background-color:transparent;
+ }
+ .circle{
+            margin-top:-55px;
+            margin-left:25px;
+            position:fixed;
+             border-radius:100%;
+              width:25px;
+            height:25px;
+            
+            background-color:red;
+           
+           
+    
+        }
+ .divright{
+     margin-top:-40px;
+            margin-left:55px;
+ }
+</style>
+
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   
+
+    <form id="form1" runat="server">
+        <div class="admindiv">
+        <div>        
+        <table>
+            <tr>
+                <td>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/image/logo.jpg" />
+                </td>
+                <td spellcheck="True">
+                    <%--<asp:TextBox ID="txtSearch" runat="server" Class="searchtextbox" placeholder="Search for product here"  Height="31px" Width="502px"></asp:TextBox>--%>
+            
+                      </td>
+                <td><%--<asp:ImageButton ID="btnSearch" runat="server" Height="42px" ImageUrl="~/image/search.png" Width="80px" ToolTip="Click for search" /></td>
+   --%>         </tr>
+        </table>
+        
+        </div>
+         
+        <div style="background-color: #FFFFFF">
+
+
+            <ul class="navbar cf">
+			<li><a href="AdminPage.aspx">HOME</a></li>
+			              
+                	<li><a href="">Store Room</a>
+								<ul>
+									<li><a href="Veg_Store.aspx">Veg Store</a></li>
+									<li><a href="Nonveg_Store.aspx">Nonveg store</a></li>
+                                        <li><a href="TodaySpecial_Store.aspx">Today Special</a></li>
+									  <li><a href="SGrocery.aspx">Grocery Store</a></li>
+				                </ul>
+                
+                                                      
+							<li><a href="ShowOrder.aspx">ORDER_LIST</a></li>
+							<li><a href="ShowFeedback.aspx">SHOW_FEEDBACK</a></li>
+							<li><a href="AddItem.aspx">INPUT_ITEM</a>
+								<%--<ul>
+									<li><a href="AddVegItem.aspx">veg_item</a></li>
+									<li><a href="AddNonvegItem.aspx">Nonveg_item</a></li>
+                                        <li><a href="AddTodaySpecial.aspx">Today Special</a></li>
+									
+				                </ul>--%>
+			</li>
+                        <li><a href="User_List.aspx">Users</a></li>
+			<li><%--<a href="Transection.aspx">Transection</a>--%></li>
+			
+  </ul>
+
+
+        </div>
+            </div>
+
+         <div class="divlbluser">
+            <asp:Label ID="lblsession" runat="server" Text="Hi ! " Font-Bold="True" Font-Size="X-Large"></asp:Label>
+             <asp:Label ID="lblUsernme" align="right" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="#FF6600"></asp:Label> 
+        </div>
+        <div class="divaloginicon">
+            <asp:ImageButton ID="btnAlogout" runat="server" ImageUrl="~/image/logouticon.jpg" Height="45" Width="130" OnClick="btnAlogout_Click" CausesValidation="False" />
+        
+        
+        </div>
+
+        <div class="myicon">
+
+            <asp:ImageButton ID="btnNoty" runat="server" ImageUrl="~/image/notification.png" Height="50" Width="50" />
+        <div  class="circle" id="doption" runat="server">
+           
+             <center><br /><asp:Label ID="lblnoty" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="White"></asp:Label></center></div>
+       <div class="divright" id="divright" runat="server">
+           <asp:Label ID="lblCount" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="#FF3300"></asp:Label><asp:Label ID="Label2" runat="server" Text=" Order Placed" Font-Size="Small" ForeColor="#FF3300" Font-Bold="True"></asp:Label><br />
+          &nbsp;&nbsp; <asp:LinkButton ID="btnLink" runat="server" ToolTip="Click here" Font-Bold="True" Font-Size="Small" Font-Underline="False" ForeColor="#0033CC" OnClick="btnLink_Click">View Orders</asp:LinkButton>
+       </div>
+            
+            
+         </div>
+
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="oid" DataSourceID="SqlDataSource1" Visible="False">
+            <Columns>
+                <asp:BoundField DataField="oid" HeaderText="oid" ReadOnly="True" SortExpression="oid" />
+                <asp:BoundField DataField="paymentstatus" HeaderText="paymentstatus" SortExpression="paymentstatus" />
+                <asp:BoundField DataField="userid" HeaderText="userid" SortExpression="userid" />
+                <asp:BoundField DataField="totalbill" HeaderText="totalbill" SortExpression="totalbill" />
+                <asp:BoundField DataField="orderstatus" HeaderText="orderstatus" SortExpression="orderstatus" />
+                <asp:BoundField DataField="orderdate" HeaderText="orderdate" SortExpression="orderdate" />
+                <asp:BoundField DataField="invoiceno" HeaderText="invoiceno" SortExpression="invoiceno" />
+            </Columns>
+        </asp:GridView>
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbcon %>" SelectCommand="SELECT [oid], [paymentstatus], [userid], [totalbill], [orderstatus], [orderdate], [invoiceno] FROM [tblOrder] WHERE ([orderstatus] = @orderstatus)">
+            <SelectParameters>
+                <asp:Parameter DefaultValue="Confirmed" Name="orderstatus" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+  <center style="width: 1217px"> <asp:Label ID="Label1" runat="server" Text=  "&amp;copy www.homebazzar.com | 2018 | All rights reserved" BackColor="#666666" BorderStyle="None" Width="1342px" ForeColor="White" Height="32px" style="margin-left: 4px" Font-Bold="True" Font-Size="Small"></asp:Label></center>
+
+
+   
+
+        
+        
+
+
+
+
+
+      
+    </form>
+  
+</body>
+</html>

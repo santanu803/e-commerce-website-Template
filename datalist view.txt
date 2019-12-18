@@ -1,0 +1,5 @@
+///data list view image button
+
+Label id = ((Label)((ImageButton)sender).Parent.FindControl("lblItemid"));
+        Session["tid"] = id.Text;
+        Response.Redirect("Order.aspx");
